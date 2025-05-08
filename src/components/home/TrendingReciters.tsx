@@ -2,7 +2,7 @@ import React from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { getFeaturedReciters } from '@/lib/api';
+import { getFeaturedReciters } from '@/Iib/api';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const TrendingReciters: React.FC = () => {

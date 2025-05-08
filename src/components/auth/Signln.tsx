@@ -60,7 +60,7 @@ const SignIn: React.FC = () => {
   return (
     <Card className="w-full max-w-md">
       <CardHeader className="space-y-1 flex flex-col items-center text-center">
-        <SorafiyLogo size={64} className="mb-2" />
+        <SorafiyLogo className="mb-2" />
         <CardTitle className="text-2xl">Sign in to Sorafiy</CardTitle>
         <CardDescription>
           Access your library and personalized Quran experience

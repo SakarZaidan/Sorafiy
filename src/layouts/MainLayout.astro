@@ -1,0 +1,95 @@
+---
+import '@/styles/globals.css';
+import { ViewTransitions } from 'astro:transitions';
+import Sidebar from '@/components/sidebar/Sidebar';
+import Header from '@/components/header/Header';
+import Player from '@/components/player/Player';
+import { Toaster } from '@/components/ui/sonner';
+
+interface Props {
+  title: string;
+  showPlayer?: boolean;
+  showSidebar?: boolean;
+}
+
+const { title, showPlayer = true, showSidebar = true } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" dir="ltr" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Sorafiy - Modern Quran Streaming Platform" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title} | Sorafiy</title>
+    <ViewTransitions />
+  </head>
+  <body class="bg-background min-h-screen font-sans relative overflow-x-hidden">
+    <div class="flex flex-col min-h-screen">
+      <Header client:load />
+      
+      <div class="flex flex-1 w-full">
+        {showSidebar && <Sidebar client:load />}
+        
+        <main class={`flex-1 pb-24 ${showSidebar ? 'md:ml-60' : ''}`}>
+          <slot />
+        </main>
+      </div>
+
+      {showPlayer && <Player client:load />}
+    </div>
+    <Toaster client:load />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --font-arabic: 'Amiri', serif;
+    --font-sans: 'Poppins', sans-serif;
+  }
+  
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .arabic-text {
+    font-family: var(--font-arabic);
+    line-height: 1.8;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+  
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) hsl(var(--background));
+  }
+</style>

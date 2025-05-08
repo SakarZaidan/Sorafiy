@@ -2,7 +2,7 @@ import React from 'react';
 import { ChevronRight, ChevronLeft, PlayCircle, ListMusic, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { getRecommendedPlaylists } from '@/lib/api';
+import { getRecommendedPlaylists } from '@/Iib/api';
 
 const RecommendedPlaylists: React.FC = () => {
   const playlists = getRecommendedPlaylists();

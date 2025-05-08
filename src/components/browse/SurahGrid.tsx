@@ -21,8 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { fetchSurahs } from '@/lib/api';
-import type { Surah } from '@/lib/types';
+import { fetchSurahs } from '@/Iib/api';
+import type { Surah } from '@/Iib/types';
 
 const SurahGrid: React.FC = () => {
   const [surahs, setSurahs] = useState<Surah[]>([]);

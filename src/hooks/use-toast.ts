@@ -176,7 +176,7 @@ function useToast() {
         listeners.splice(index, 1);
       }
     };
-  }, [state]);
+  }, []); // ✅ Only register once on mount
 
   return {
     ...state,
@@ -184,5 +184,6 @@ function useToast() {
     dismiss: (toastId?: string) => dispatch({ type: 'DISMISS_TOAST', toastId }),
   };
 }
+
 
 export { useToast, toast };

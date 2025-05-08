@@ -5,8 +5,8 @@ const {
   Pause, 
   SkipBack, 
   SkipForward, 
-  Volume2, 
-  VolumeMute,
+  Volume2,
+  VolumeX,
   Repeat,
   Shuffle,
   Maximize2,
@@ -20,7 +20,7 @@ import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Progress } from '@/components/ui/progress';
-import { cn } from '@/lib/utils';
+import { cn } from '@/Iib/utils';
 
 const Player = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -201,7 +201,7 @@ const Player = () => {
                   onClick={toggleMute}
                   className="text-muted-foreground"
                 >
-                  {isMuted || volume === 0 ? <VolumeMute size={18} /> : <Volume2 size={18} />}
+                  {isMuted || volume === 0 ? <VolumeX size={18} /> : <Volume2 size={18} />}
                 </Button>
                 <Slider 
                   value={[volume]} 
