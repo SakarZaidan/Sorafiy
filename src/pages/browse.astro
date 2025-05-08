@@ -1,0 +1,15 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import SurahGrid from '@/components/browse/SurahGrid';
+---
+
+<MainLayout title="Browse Surahs">
+  <div class="container px-4 py-6 pt-20">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold mb-2">Browse Surahs</h1>
+      <p class="text-muted-foreground">Explore all 114 surahs of the Noble Quran</p>
+    </div>
+    
+    <SurahGrid client:load />
+  </div>
+</MainLayout>

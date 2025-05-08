@@ -1,0 +1,10 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import SignUp from '@/components/auth/SignUp';
+---
+
+<MainLayout title="Sign Up" showPlayer={false} showSidebar={false}>
+  <div class="flex min-h-screen items-center justify-center px-4 py-12">
+    <SignUp client:load />
+  </div>
+</MainLayout>

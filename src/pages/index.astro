@@ -1,0 +1,25 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import FeaturedSurah from '@/components/home/FeaturedSurah';
+import TrendingReciters from '@/components/home/TrendingReciters';
+import RecentlyPlayed from '@/components/home/RecentlyPlayed';
+import RecommendedPlaylists from '@/components/home/RecommendedPlaylists';
+---
+
+<MainLayout title="Home">
+  <div class="container px-4 py-6 pt-20">
+    <FeaturedSurah client:load />
+    
+    <div class="mt-12">
+      <TrendingReciters client:load />
+    </div>
+    
+    <div class="mt-12">
+      <RecentlyPlayed client:load />
+    </div>
+    
+    <div class="mt-12 mb-8">
+      <RecommendedPlaylists client:load />
+    </div>
+  </div>
+</MainLayout>
