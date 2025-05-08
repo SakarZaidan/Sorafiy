@@ -30,6 +30,8 @@ export interface Surah {
     avatar?: string;
     style?: string;
     featured?: boolean;
+    country?: string;
+    quality?: string;
   }
   
   // User Types

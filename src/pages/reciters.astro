@@ -1,0 +1,16 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { getAllReciters } from '../Iib/api';
+import ReciterCard from '../components/reciters/ReciterCard';
+import RecitersPageClient from '../components/reciters/RecitersPageClient';
+
+
+const allReciters = getAllReciters();
+
+---
+
+<MainLayout title="Reciters Directory">
+	<section class="container px-4 py-6 pt-20">
+		<RecitersPageClient allReciters={allReciters} client:load />
+	</section>
+</MainLayout>

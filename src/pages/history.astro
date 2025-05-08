@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getUserHistory } from '../Iib/api';
+import HistoryList from '../components/history/HistoryList'; // We will create this next
+
+const userId = 'current_user'; // Replace with actual user ID logic later
+const history = getUserHistory(userId);
+---
+
+<Layout title="Playback History">
+  <main class="container px-4 py-6 pt-20">
+    <h1 class="text-3xl font-bold mb-6">Playback History</h1>
+
+    <HistoryList history={history} client:load />
+  </main>
+</Layout>

@@ -21,7 +21,9 @@ import type {
       info: 'Kuwaiti reciter known for his melodious voice',
       avatar: 'https://i1.sndcdn.com/artworks-000159830949-ruptby-t500x500.jpg',
       style: 'Murattal',
-      featured: true
+      featured: true,
+      country: 'Kuwait',
+ quality: '192kbps'
     },
     {
       id: 2,
@@ -30,7 +32,9 @@ import type {
       info: 'Imam of the Grand Mosque in Mecca',
       avatar: 'https://i1.sndcdn.com/artworks-vVAIxidJ1vdBJVnl-NR0YQA-t500x500.jpg',
       style: 'Murattal',
-      featured: true
+      featured: true,
+      country: 'Saudi Arabia',
+ quality: '320kbps'
     },
     {
       id: 3,
@@ -39,7 +43,9 @@ import type {
       info: 'Imam of the Grand Mosque in Mecca',
       avatar: 'https://i1.sndcdn.com/artworks-000137529845-xevfol-t500x500.jpg',
       style: 'Murattal',
-      featured: true
+      featured: true,
+      country: 'Saudi Arabia',
+ quality: '320kbps'
     },
     {
       id: 4,
@@ -48,7 +54,9 @@ import type {
       info: 'Classical Egyptian reciter',
       avatar: 'https://i1.sndcdn.com/artworks-000104102193-s4z15m-t500x500.jpg',
       style: 'Mujawwad',
-      featured: true
+      featured: true,
+      country: 'Egypt',
+ quality: '128kbps'
     }
   ];
   
@@ -131,25 +139,33 @@ import type {
         name: 'Mahmoud Khalil Al-Husary',
         arabicName: 'محمود خليل الحصري',
         info: 'Classical Egyptian reciter',
-        style: 'Mujawwad'
+ style: 'Mujawwad',
+ country: 'Egypt',
+ quality: '128kbps'
       },
       {
         id: 6,
         name: 'Muhammad Ayyub',
         arabicName: 'محمد أيوب',
         info: 'Former Imam of the Prophet\'s Mosque in Medina',
-        style: 'Murattal'
+ style: 'Murattal',
+ country: 'Saudi Arabia',
+ quality: '192kbps'
       },
       {
         id: 7,
         name: 'Hani Ar-Rifai',
         arabicName: 'هاني الرفاعي',
         info: 'Former Imam of the Grand Mosque in Mecca',
-        style: 'Murattal'
+ style: 'Murattal',
+ country: 'Saudi Arabia',
+ quality: '192kbps'
       },
       {
         id: 8,
         name: 'Abu Bakr Al-Shatri',
+ country: 'Saudi Arabia',
+ quality: '128kbps',
         arabicName: 'أبو بكر الشاطري',
         info: 'Imam from Saudi Arabia',
         style: 'Murattal'
@@ -231,7 +247,27 @@ import type {
   
   export function getUserHistory(userId: string): HistoryItem[] {
     // This would come from the database
-    return [];
+    // Mock history data for user "mock-user-123"
+    if (userId === 'mock-user-123') {
+      return [
+        {
+          id: 'hist-1', userId: 'mock-user-123', surahId: 1, reciterId: 1, timestamp: new Date(Date.now() - 60 * 1000).toISOString(), duration: 120
+        },
+        {
+          id: 'hist-2', userId: 'mock-user-123', surahId: 18, reciterId: 2, timestamp: new Date(Date.now() - 5 * 60 * 1000).toISOString(), duration: 780
+        },
+        {
+          id: 'hist-3', userId: 'mock-user-123', surahId: 55, reciterId: 4, timestamp: new Date(Date.now() - 30 * 60 * 1000).toISOString(), duration: 500
+        },
+        {
+          id: 'hist-4', userId: 'mock-user-123', surahId: 67, reciterId: 1, timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), duration: 650
+        },
+        {
+          id: 'hist-5', userId: 'mock-user-123', surahId: 114, reciterId: 3, timestamp: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(), duration: 30
+        }
+      ];
+    }
+    return []; // Return empty array for other users
   }
   
   // Trending surahs (mock data)
